@@ -45,7 +45,7 @@ export default function LoginPage(){
     return (
     <Fragment>
       <h1>Login</h1>
-      <form id="login-form" onSubmit={handleLoginUser }>
+      <form id="login-form" onSubmit={handleLoginUser}>
         <input id="username" placeholder="Username" />
         <input id="password" type="password" placeholder="Password" />
         <br/>
