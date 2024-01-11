@@ -1,5 +1,9 @@
 export default function MainPage() {
   
-  return <div>Main page pa</div>
+  return <div>
+    <span color="#ffffff">
+    Main page pa
+    </span>
+    </div>
 
 }

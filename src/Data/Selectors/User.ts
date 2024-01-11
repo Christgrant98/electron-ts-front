@@ -7,7 +7,6 @@ const getUserState = (state: State) => {
 
 const getUser = (state: UserState) => {
   return state.currentUser;
-
 }
 
 const getUserToken = (state: UserState) => {
