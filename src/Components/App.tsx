@@ -24,13 +24,13 @@ export default function App() {
   }
 
   return (
-    <Layout style={{ minHeight: "100vh", alignContent: "center" }}>
+    <Layout style={{ minHeight: "100vh", alignContent: "center", backgroundColor:"#00000000" }}>
       <Content>
         <div className='app'>
           { renderMainContent() }
         </div>
       </Content>
-      <Footer style={{ textAlign: "center", color: "#808080BF", fontSize: "12px" }}> 
+      <Footer style={{ color: "#808080BF", fontSize: "12px", backgroundColor:"#00000000"}}> 
         Electron App ©2024 Created by Christian Garcerant
       </Footer>
     </Layout>

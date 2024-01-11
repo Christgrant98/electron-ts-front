@@ -8,13 +8,12 @@ type RequestType = "GET" | "POST" | "PATCH" | "DELETE";
 export function Request<T>(
   path: string, token:string, type: RequestType, body?: T, params?: any): Promise<T | void> {
   return new Promise<T | void>((resolve, reject) => {
+    // console.log('type', type)
+    // console.log('path', path)
+    // console.log('params', params)
+    // console.log('body', body)
+    // console.log('token', token)
 
-      console.log('type',type)
-      console.log('path',path)
-      console.log('params',params)
-      console.log('body',body)
-      console.log('token',token)
-      
     axios({
       method: type,
       url: `${baseUrl}/${path}`,

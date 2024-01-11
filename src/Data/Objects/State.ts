@@ -3,9 +3,6 @@ import { IUser } from "../Interfaces/User";
 export enum Pages {
   LOGIN = "LOGIN",
   HOME = "HOME", 
-  // ANIMATIONS = "ANIMATIONS",
-  // COMPONENTS = "COMPONENTS",
-  // INTERFACES = "INTERFACES", 
 }
 
 export class State {  
