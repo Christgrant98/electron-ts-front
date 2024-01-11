@@ -11,6 +11,7 @@ import {CustomButton} from '../../Utils/CustomButton'
 import { Form, Input, Divider } from "antd"
 
 export default function LoginPage(){
+  
   const dispatch: AsyncDispatch = useDispatch();
   const attemptLoginUser = (payload: ILoginUserPayload) => dispatch(loginUserAsync(payload))
   const attemptRegisterUser = (payload: IRegisterUserPayload) => dispatch(registerUserAsync(payload))
@@ -19,18 +20,20 @@ export default function LoginPage(){
   const {Item} = Form
 
   const handleLoginUser = (event) => {
-    const username = event?.target?.username?.value;
-    const password = event?.target?.password?.value;
+    const email = event?.email;
+    const password = event?.password;
+    console.log('event login in handleLoginUser == ', event)
 
-    attemptLoginUser({username, password}).then(() => {
+    attemptLoginUser({email, password}).then(() => {
       changeCurrentPage()
     })
 
   }
   const handleRegisterUser = (event) => {
-    const username = event?.target?.username?.value;
-    const email = event?.target?.email?.value;
-    const password = event?.target?.password?.value;
+    const username = event?.username;
+    const email = event?.email;
+    const password = event?.password;
+    console.log('event login in handleLoginUser == ', event)
 
     attemptRegisterUser({username, password, email}).then(() => {
       changeCurrentPage()
@@ -43,20 +46,20 @@ export default function LoginPage(){
       <div className="second-container">
         <Fragment>
           <h1>Login</h1>
-          <Form id="login-Form" onFinish={handleLoginUser}>
+          <Form id="login-form" onFinish={handleLoginUser}>
             <Item
-              label="Username"
-              name="username" 
-              rules={[{ required: true, message: 'Please enter your username' }]}
+              label="Email"
+              name="email" 
+              rules={[{ required: true, message: 'Please enter your email' }]}
             >
-              <Input placeholder="@example123" />
+              <Input placeholder="@example123"/>
             </Item>
             <Item
               label="Password"
               name="password"
               rules={[{ required: true, message: 'Please enter your password' }]}
             >
-              <Input.Password placeholder="Enter your password" />
+              <Input.Password placeholder="Enter your password"/>
             </Item>
             <CustomButton buttonText="Login" />
           </Form>
@@ -78,7 +81,7 @@ export default function LoginPage(){
         <Fragment>
           <h1>Register</h1>
           <Form
-            id="register-Form"
+            id="register-form"
             onFinish={handleRegisterUser}
           >
             <Item

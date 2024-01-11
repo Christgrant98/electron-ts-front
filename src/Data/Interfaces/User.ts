@@ -10,7 +10,7 @@ export interface IUser {
 }
 
 export interface ILoginUserPayload {
-  username: string;
+  email: string;
   password: string;
 }
 

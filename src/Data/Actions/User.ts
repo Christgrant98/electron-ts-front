@@ -8,6 +8,7 @@ export const loginUserAsync = createAsyncThunk<IApiUser, ILoginUserPayload, { st
   "LOGIN_USER",
   async (payload: ILoginUserPayload, { getState }) => {
     const authToken = getAuthToken(getState());
+    console.log('loginUserAsync', payload)
 
     if (authToken !== undefined) {
       return UserAPI.loginUser(payload, authToken) as Promise<IApiUser>;
