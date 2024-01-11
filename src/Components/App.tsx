@@ -1,5 +1,4 @@
 import { useSelector } from 'react-redux'
-import '../Styles/App.less'
 
 import { getCurrentPage } from '../Data/Selectors/Navigation'
 import MainPage from './MainPage'
@@ -15,7 +14,7 @@ export default function App() {
 
 
   const renderMainContent = () => {
-    let content = (
+    const content = (
       <MainPage/>
     );
     if(currentPage === Pages.LOGIN || !currentUser || !authToken ){
