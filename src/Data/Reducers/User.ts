@@ -10,7 +10,7 @@ const defaultState: UserState = {
 };
 
 const handleLoginUserAsync = (state: UserState, action: PayloadAction<IApiUser>) => {
-  if (action.payload) {
+  if (!action.payload) {
     return state;
   }
 
@@ -23,7 +23,7 @@ const handleLoginUserAsync = (state: UserState, action: PayloadAction<IApiUser>)
     }
 
    state.currentUser = newUser;
-   state.token = token
+   state.token = token;
   }
  
 
