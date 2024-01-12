@@ -22,7 +22,6 @@ export default function LoginPage(){
   const handleLoginUser = (event) => {
     const email = event?.email;
     const password = event?.password;
-    console.log('event login in handleLoginUser == ', event)
 
     attemptLoginUser({email, password}).then(() => {
       changeCurrentPage()
