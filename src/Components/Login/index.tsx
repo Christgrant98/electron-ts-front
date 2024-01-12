@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { AsyncDispatch } from "../../Data/Utils/Redux";
 import { useDispatch } from "react-redux";
 import { setActivePage } from "../../Data/Actions/Navigation";
@@ -42,33 +42,31 @@ export default function LoginPage(){
     return (
       <div className="main-container">
       <div className="second-container">
-        <Fragment>
-          <h1>Login</h1>
-          <Form id="login-form" onFinish={handleLoginUser}>
-            <Item
-              label="Email"
-              name="email" 
-              rules={[{ required: true, message: 'Please enter your email' }]}
-            >
-              <Input placeholder="@example123"/>
-            </Item>
-            <Item
-              label="Password"
-              name="password"
-              rules={[{ required: true, message: 'Please enter your password' }]}
-            >
-              <Input.Password placeholder="Enter your password"/>
-            </Item>
-            <CustomButton buttonText="Login" />
-          </Form>
-          <Divider />
-          <span style={{ color: '#000000' }}>
-            Don't have an account?{' '}
-            <span onClick={() => setShowRegister(true)}>Sign up</span>
-          </span>
-        </Fragment>
+        <h1>Login</h1>
+        <Form id="login-form" onFinish={handleLoginUser}>
+          <Item
+            label="Email"
+            name="email" 
+            rules={[{ required: true, message: 'Please enter your email' }]}
+          >
+            <Input placeholder="@example123"/>
+          </Item>
+          <Item
+            label="Password"
+            name="password"
+            rules={[{ required: true, message: 'Please enter your password' }]}
+          >
+            <Input.Password placeholder="Enter your password"/>
+          </Item>
+          <CustomButton buttonText="Login" />
+        </Form>
+        <Divider />
+        <span style={{ color: '#000000' }}>
+          Don't have an account?{' '}
+          <span onClick={() => setShowRegister(true)}>Sign up</span>
+        </span>
       </div>
-    </div>
+    </div>    
     );
   }
   
@@ -76,43 +74,39 @@ export default function LoginPage(){
     return (
       <div className="main-container">
       <div className="second-container">
-        <Fragment>
-          <h1>Register</h1>
-          <Form
-            id="register-form"
-            onFinish={handleRegisterUser}
+        <h1>Register</h1>
+        <Form id="register-form" onFinish={handleRegisterUser}>
+          <Item
+            label="Username"
+            name="username"
+            rules={[{ required: true, message: 'Please enter your username' }]}
           >
-            <Item
-              label="Username"
-              name="username" 
-              rules={[{ required: true, message: 'Please enter your username' }]}
-            >
-              <Input placeholder="Enter your username" />
-            </Item>
-            <Item
-              label="Email address"
-              name="email" 
-              rules={[{ required: true, message: 'Please enter your email' }]}
-            >
-              <Input type="email" placeholder="example@mail.com" />
-            </Item>
-            <Item
-              label="Password"
-              name="password"
-              rules={[{ required: true, message: 'Please enter your password' }]}
-            >
-              <Input.Password placeholder="Enter your password" />
-            </Item>
-            <CustomButton buttonText= "Register"/>
-          </Form>
-          <Divider/>
-          <span style={{ color: '#000000' }}>
-            Already have an account?{' '}
-            <span onClick={() => setShowRegister(false)}>Sign in</span>
-          </span>
-        </Fragment>
+            <Input placeholder="Enter your username" />
+          </Item>
+          <Item
+            label="Email address"
+            name="email"
+            rules={[{ required: true, message: 'Please enter your email' }]}
+          >
+            <Input type="email" placeholder="example@mail.com" />
+          </Item>
+          <Item
+            label="Password"
+            name="password"
+            rules={[{ required: true, message: 'Please enter your password' }]}
+          >
+            <Input.Password placeholder="Enter your password" />
+          </Item>
+          <CustomButton buttonText="Register" />
+        </Form>
+        <Divider />
+        <span style={{ color: '#000000' }}>
+          Already have an account?{' '}
+          <span onClick={() => setShowRegister(false)}>Sign in</span>
+        </span>
       </div>
     </div>
+    
     )
   }
 
