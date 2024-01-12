@@ -97,8 +97,10 @@ code {
 
 .todo-wrap {
   justify-content: center;
+  align-items: center;
+  text-align: center;
   background: #00000000;
-  margin-top: 5rem;
+  margin-top: 1rem;
   padding: 2rem;
   border-radius: 5px;
 }
@@ -113,7 +115,7 @@ code {
   background: none;
   border: 1px solid #432f90a0;
   padding: 0.5rem 1rem;
-  margin-top: 1rem;
+  margin-top: 5rem;
   margin-bottom: 2rem;
   width: 300px;
   color: #000000;
@@ -137,43 +139,36 @@ code {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background:  #ffffffbb;
   border: .1px solid rgba(0, 0, 0, 0.062);
   box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 18px;
-  color: #fff;
   padding: 0.75rem 1rem;
   border-radius: 10px;
   margin-bottom: 1rem;
+  max-width: 100%;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
   &:hover {
-    transform: translateY(-6px);
+    transform: translateY(-8px);
     box-shadow: 0 0 50px 4px rgba(0,0,0,0.25);
   }
 }
 
-.fa-trash {
-  margin-left: 0.75rem;
-}
 
 .incompleted {
   color: #000000d0;
   cursor: pointer;
+  font-size: 16px;
+
 }
 
 .completed {
   color: #0a009491;
   text-decoration: line-through;
   cursor: pointer;
+  font-size: 16px;
 }
 
-.edit-icon,
-.delete-icon {
-  cursor: pointer;
-  color: #002ec7;
-}
-
-.add-task-buttonx {
+.add-task-button {
   color: #002ec7;
   position: absolute;
   top: 0;
@@ -187,21 +182,21 @@ code {
   font-size: 18px;
 }
 
-.containerx{
+.container {
   width: 100%;
   min-width: 250px;
   max-width: 450px;
-  height: 70px;
+  height: 50px;
   text-align: center;
 }
 
-.custom-form{
+.custom-form {
   background: grey;
   border-radius: 25px;
   position: relative;
 }
 
-.task-input{
+.task-input {
   width: 100%;
   height: 100%;
   display: block;
@@ -216,7 +211,7 @@ code {
   outline: none;
 }
 
-.add-task-button{
+.add-task-button {
   position: absolute;
   top: 0;
   right: 0;
@@ -234,5 +229,17 @@ code {
 }
 
 button:hover .button-add{
-  color: rgb(0, 0, 0);
+  color: rgba(97, 97, 97, 0.545);
+}
+
+.todo-button {
+  color:#002ec7;
+  font-size: 22px;
+  margin-left: 20px;
+  transition: all 0.5s ease-in-out;
+  background-color: none;
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 100px 2px rgba(0,0,0,0.25);
+  }
 }

@@ -21,8 +21,8 @@ export default function LoginPage(){
   const [form] = Form.useForm();
 
   const handleLoginUser = (event) => {
-    const email = event?.loginEmail;
-    const password = event?.loginPassword;
+    const email = event?.email;
+    const password = event?.password;
 
     attemptLoginUser({email, password}).then(() => {
       changeCurrentPage()

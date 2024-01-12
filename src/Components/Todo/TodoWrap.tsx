@@ -4,6 +4,7 @@ import { TodoForm } from "./TodoForm";
 import { EditTodoForm } from "./EditTodoForm";
 import { Todo } from "./Todo";
 import { ITodo } from "../../Data/Interfaces/Todo";
+import { Divider } from "antd";
 
 export const TodoWrap = () => {
   const [todos, setTodos] = useState<ITodo[]>([]);
@@ -43,8 +44,11 @@ export const TodoWrap = () => {
 
   return (
     <div className="todo-wrap">
-      <h1>Task Manager</h1>
+        <h1>Task Manager Pro</h1>
+        <p>Click on the task text to mark as completed</p>
       <TodoForm addTodo={addTodo} />
+      <br/>
+      <Divider/>
       {todos.map((todo) =>
         todo.isEditing ? (
           <EditTodoForm editTodo={editTask} task={todo} />
