@@ -5,14 +5,9 @@ const baseUrl = "http://127.0.0.1:3000/v1/auth";
 
 type RequestType = "GET" | "POST" | "PATCH" | "DELETE";
 
-export function Request<T>(
-  path: string, token:string, type: RequestType, body?: T, params?: any): Promise<T | void> {
-  return new Promise<T | void>((resolve, reject) => {
-    // console.log('type', type)
-    // console.log('path', path)
-    // console.log('params', params)
-    // console.log('body', body)
-    // console.log('token', token)
+export function Request<T, R>(
+  path: string, token:string, type: RequestType, body?: T, params?: any): Promise<R> {
+  return new Promise<R>((resolve, reject) => {
 
     axios({
       method: type,
@@ -22,12 +17,14 @@ export function Request<T>(
       headers: {
         "Authorization" : `Bearer ${token}`
       }
-    }).then((response: AxiosResponse<T>) => {
+    }).then((response: AxiosResponse<R>) => {
       if (response.status >= 200 && response.status < 400) { 
         resolve(response.data);
       } else {
         reject();
       }
+    }).catch(reason => {
+      reject(reason);
     });
   });
 }

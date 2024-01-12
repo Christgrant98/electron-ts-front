@@ -18,11 +18,11 @@ export default function LoginPage(){
   const changeCurrentPage = () => dispatch(setActivePage(Pages.HOME))
   const [showRegister, setShowRegister] = useState(false)
   const {Item} = Form
+  const [form] = Form.useForm();
 
   const handleLoginUser = (event) => {
-    const email = event?.email;
-    const password = event?.password;
-    console.log('event login in handleLoginUser == ', event)
+    const email = event?.loginEmail;
+    const password = event?.loginPassword;
 
     attemptLoginUser({email, password}).then(() => {
       changeCurrentPage()
@@ -31,11 +31,12 @@ export default function LoginPage(){
   }
   const handleRegisterUser = (event) => {
     const username = event?.username;
-    const email = event?.email;
-    const password = event?.password;
+    const email = event?.registerEmail;
+    const password = event?.registerPassword;
 
     attemptRegisterUser({username, password, email}).then(() => {
-      changeCurrentPage()
+      form.resetFields();
+      setShowRegister(false)
     })
   }
 
@@ -45,17 +46,17 @@ export default function LoginPage(){
       <div className="second-container">
         <Fragment>
           <h1>Login</h1>
-          <Form id="login-form" onFinish={handleLoginUser}>
+          <Form form={form} id="login-form" onFinish={handleLoginUser}>
             <Item
               label="Email"
-              name="email" 
+              name="loginEmail" 
               rules={[{ required: true, message: 'Please enter your email' }]}
             >
               <Input placeholder="@example123"/>
             </Item>
             <Item
               label="Password"
-              name="password"
+              name="loginPassword"
               rules={[{ required: true, message: 'Please enter your password' }]}
             >
               <Input.Password placeholder="Enter your password"/>
@@ -80,6 +81,7 @@ export default function LoginPage(){
         <Fragment>
           <h1>Register</h1>
           <Form
+            form={form}
             id="register-form"
             onFinish={handleRegisterUser}
           >
@@ -92,14 +94,14 @@ export default function LoginPage(){
             </Item>
             <Item
               label="Email address"
-              name="email" 
+              name="registerEmail" 
               rules={[{ required: true, message: 'Please enter your email' }]}
             >
               <Input type="email" placeholder="example@mail.com" />
             </Item>
             <Item
               label="Password"
-              name="password"
+              name="registerPassword"
               rules={[{ required: true, message: 'Please enter your password' }]}
             >
               <Input.Password placeholder="Enter your password" />
