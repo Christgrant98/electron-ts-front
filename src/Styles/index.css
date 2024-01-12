@@ -4,19 +4,14 @@
   font-weight: 480;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.733);
-
+  color: #ffffffbb;
+  justify-content: center;
   background-color: #c7c7c7; 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-}
-.custom-button {
-  width: 100%;
-  color: #ffffff !important;
-  background-color: #002ec7;
 }
 
 .main-container {
@@ -49,6 +44,7 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
+  justify-content: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -58,26 +54,6 @@ h1 {
   line-height: 1.1;
   color: #002ec7;
 }
-
-/* button {
-  border-radius: 8px;
-  border: 1px solid transparent; 
-  padding: 0.6em 1.2em; 
-  font-size: 1em; 
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-  width: 50%;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-} */
 
 code {
   background: #000000;
@@ -116,3 +92,147 @@ code {
   }
 }
 
+
+/* components styles for todo */
+
+.todo-wrap {
+  justify-content: center;
+  background: #00000000;
+  margin-top: 5rem;
+  padding: 2rem;
+  border-radius: 5px;
+}
+
+.todo-form {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.todo-input {
+  outline: none;
+  background: none;
+  border: 1px solid #432f90a0;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  width: 300px;
+  color: #000000;
+  
+}
+
+.todo-input::placeholder {
+  color: #1e1e1e4d;
+  
+}
+
+.todo-btn {
+  background: #0a0094;
+  color: #fff;
+  border: none;
+  padding: 0.55rem;
+  cursor: pointer;
+}
+
+.Todo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background:  #ffffffbb;
+  border: .1px solid rgba(0, 0, 0, 0.062);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 18px;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 50px 4px rgba(0,0,0,0.25);
+  }
+}
+
+.fa-trash {
+  margin-left: 0.75rem;
+}
+
+.incompleted {
+  color: #000000d0;
+  cursor: pointer;
+}
+
+.completed {
+  color: #0a009491;
+  text-decoration: line-through;
+  cursor: pointer;
+}
+
+.edit-icon,
+.delete-icon {
+  cursor: pointer;
+  color: #002ec7;
+}
+
+.add-task-buttonx {
+  color: #002ec7;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 100%;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 18px;
+}
+
+.containerx{
+  width: 100%;
+  min-width: 250px;
+  max-width: 450px;
+  height: 70px;
+  text-align: center;
+}
+
+.custom-form{
+  background: grey;
+  border-radius: 25px;
+  position: relative;
+}
+
+.task-input{
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 10px;
+  font-size: 14px;
+  padding: 12px 60px 12px 20px;
+  border: .1px solid #002ec790;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 18px;
+}
+
+.search-input:focus{
+  outline: none;
+}
+
+.add-task-button{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 100%;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 22px;
+}
+
+.button-add {
+  color: #002ec7;  
+}
+
+button:hover .button-add{
+  color: rgb(0, 0, 0);
+}

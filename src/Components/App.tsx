@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux'
 
 import { getCurrentPage } from '../Data/Selectors/Navigation'
-import MainPage from './MainPage'
 import { getCurrentUser, getAuthToken } from '../Data/Selectors/User'
 import LoginPage from './Login'
 import { Pages } from '../Data/Objects/State'
 import { Layout } from 'antd'
+import TodoPage from './TodoPage'
 const { Content, Footer } = Layout;
 
 export default function App() {
@@ -15,7 +15,7 @@ export default function App() {
 
   const renderMainContent = () => {
     const content = (
-      <MainPage/>
+      <TodoPage/>
     );
     if(currentPage === Pages.LOGIN || !currentUser || !authToken ){
       return <LoginPage/>
@@ -24,14 +24,14 @@ export default function App() {
   }
 
   return (
-    <Layout style={{ minHeight: "100vh", alignContent: "center", backgroundColor:"#00000000" }}>
+    <Layout style={{ minHeight: "100vh", alignContent: "center", background:"none" }}>
       <Content>
         <div className='app'>
           { renderMainContent() }
         </div>
       </Content>
-      <Footer style={{ color: "#808080BF", fontSize: "12px", backgroundColor:"#00000000"}}> 
-        Electron App ©2024 Created by Christian Garcerant
+      <Footer style={{ color: "#808080BF", fontSize: "13.5px", background:"none", justifyContent: "start"}}> 
+        Electron App ©2024 ⚛ Created by Christian Garcerant
       </Footer>
     </Layout>
   )
