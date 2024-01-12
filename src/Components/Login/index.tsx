@@ -21,8 +21,8 @@ export default function LoginPage(){
   const [form] = Form.useForm();
 
   const handleLoginUser = (event) => {
-    const email = event?.email;
-    const password = event?.password;
+    const email = event?.loginEmail;
+    const password = event?.loginPassword;
 
     attemptLoginUser({email, password}).then(() => {
       changeCurrentPage()
@@ -43,81 +43,86 @@ export default function LoginPage(){
   const renderLoginForm = () => {
     return (
       <div className="main-container">
-      <div className="second-container">
-        <Fragment>
-          <h1>Login</h1>
-          <Form form={form} id="login-form" onFinish={handleLoginUser}>
-            <Item
-              label="Email"
-              name="loginEmail" 
-              rules={[{ required: true, message: 'Please enter your email' }]}
-            >
-              <Input placeholder="@example123"/>
-            </Item>
-            <Item
-              label="Password"
-              name="loginPassword"
-              rules={[{ required: true, message: 'Please enter your password' }]}
-            >
-              <Input.Password placeholder="Enter your password"/>
-            </Item>
-            <CustomButton buttonText="Login" />
-          </Form>
-          <Divider />
-          <span style={{ color: '#000000' }}>
-            Don't have an account?{' '}
-            <span onClick={() => setShowRegister(true)}>Sign up</span>
-          </span>
-        </Fragment>
+        <div className="second-container">
+          <Fragment>
+            <h1>Login</h1>
+            <Form form={form} id="login-form" onFinish={handleLoginUser}>
+              <Item
+                label="Email"
+                name="loginEmail" 
+                rules={[{ required: true, message: 'Please enter your email' }]}
+              >
+                <Input placeholder="@example123"/>
+              </Item>
+              <Item
+                label="Password"
+                name="loginPassword"
+                rules={[{ required: true, message: 'Please enter your password' }]}
+              >
+                <Input.Password placeholder="Enter your password"/>
+              </Item>
+              <CustomButton buttonText="Login" />
+            </Form>
+            <Divider />
+            <span style={{ color: '#000000' }}>
+              Don't have an account?{' '}
+              <span className="auth-text-button" onClick={() => setShowRegister(true)}>
+                Sign up
+              </span>
+            </span>
+          </Fragment>
+        </div>
       </div>
-    </div>
     );
   }
   
   const renderRegisterForm = () => {
     return (
       <div className="main-container">
-      <div className="second-container">
-        <Fragment>
-          <h1>Register</h1>
-          <Form
-            form={form}
-            id="register-form"
-            onFinish={handleRegisterUser}
-          >
-            <Item
-              label="Username"
-              name="username" 
-              rules={[{ required: true, message: 'Please enter your username' }]}
+        <div className="second-container">
+          <Fragment>
+            <h1>Register</h1>
+            <Form
+              form={form}
+              id="register-form"
+              onFinish={handleRegisterUser}
             >
-              <Input placeholder="Enter your username" />
-            </Item>
-            <Item
-              label="Email address"
-              name="registerEmail" 
-              rules={[{ required: true, message: 'Please enter your email' }]}
-            >
-              <Input type="email" placeholder="example@mail.com" />
-            </Item>
-            <Item
-              label="Password"
-              name="registerPassword"
-              rules={[{ required: true, message: 'Please enter your password' }]}
-            >
-              <Input.Password placeholder="Enter your password" />
-            </Item>
-            <CustomButton buttonText= "Register"/>
-          </Form>
-          <Divider/>
-          <span style={{ color: '#000000' }}>
-            Already have an account?{' '}
-            <span onClick={() => setShowRegister(false)}>Sign in</span>
-          </span>
-        </Fragment>
+              <Item
+                label="Username"
+                name="username" 
+                rules={[{ required: true, message: 'Please enter your username' }]}
+              >
+                <Input placeholder="Enter your username" />
+              </Item>
+              <Item
+                label="Email address"
+                name="registerEmail" 
+                rules={[{ required: true, message: 'Please enter your email' }]}
+              >
+                <Input type="email" placeholder="example@mail.com" />
+              </Item>
+              <Item
+                label="Password"
+                name="registerPassword"
+                rules={[{ required: true, message: 'Please enter your password' }]}
+              >
+                <Input.Password placeholder="Enter your password" />
+              </Item>
+              <CustomButton buttonText= "Register"/>
+            </Form>
+            <Divider/>
+            <span style={{ color: '#000000' }}>
+              Already have an account?{' '}
+              <span className="auth-text-button" onClick={() => setShowRegister(false)}>
+                Sign in
+              </span>
+            </span>
+          </Fragment>
+        </div>
       </div>
-    </div>
-    )
+    );
   }
+  
 
   const renderContent = () =>{ 
     if(showRegister){

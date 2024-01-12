@@ -29,6 +29,13 @@
   text-align: center;
 }
 
+.auth-text-button {
+  text-decoration: underline;
+  color: #002ec7;
+  cursor: pointer;
+  font-weight: 700;
+}
+
 
 a {
   font-weight: 500;
